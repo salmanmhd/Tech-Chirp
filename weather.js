@@ -5,8 +5,6 @@ const apiUrl =
 let city = "Patna";
 const findCity = () => {
   const success = (position) => {
-    console.log(position);
-
     // LATITUDE & LONGITUDE
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;

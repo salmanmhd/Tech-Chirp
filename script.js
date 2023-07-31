@@ -1,7 +1,7 @@
 const API_KEY = "a60f55294fbd4d219b73dd4b98aabb7b";
 const url = "https://newsapi.org/v2/everything?q=";
 
-window.addEventListener("load", () => fetchNews("India"));
+window.addEventListener("load", () => fetchNews("Tech"));
 function reload() {
   window.location.reload();
 }
@@ -9,7 +9,6 @@ function reload() {
 async function fetchNews(query) {
   const res = await fetch(`${url}${query}&apiKey=${API_KEY}`);
   const data = await res.json();
-  //   console.log(data);
   bindData(data.articles);
 }
 
@@ -20,8 +19,7 @@ function bindData(articles) {
 
   articles.forEach((article) => {
     if (!article.urlToImage) return;
-    const cardClone = newsCardTemplate.content.cloneNode(true); // it will clone newsCardTemplate and its inner child as well
-
+    const cardClone = newsCardTemplate.content.cloneNode(true);
     fillDataInCard(cardClone, article);
     cardsContainer.appendChild(cardClone);
   });
